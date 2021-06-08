@@ -1,14 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom'
 
 import "./Locations.scss";
 
 export const LocationCard = ({ name, dimension, type, residents }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   console.log(name, dimension, type, residents)
 
   const handleFetchCharacters = () =>{
       console.log("GET CHARS")
+      history.push("/characters")
   }
 
   return (
