@@ -3,14 +3,10 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchCharacters } from "../characters/charactersSlice";
 
-import "./Locations.scss";
-
 export const LocationCard = ({ name, dimension, type, residents }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const residentIds = residents && residents.map(r => r.split("/")[5])
-
-  console.log(residents);
 
   const handleFetchCharacters = () => {
     console.log("GET CHARS");

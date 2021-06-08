@@ -25,7 +25,7 @@ export const charactersSlice = createSlice({
             state.status = 'loading'
         },
         [fetchCharacters.fulfilled]: (state, action) => {
-            state.results = action.payload.r;
+            state.results = action.payload.r.length ? action.payload.r : [action.payload.r];
             state.status = 'complete';
         },
         [fetchCharacters.rejected]: (state, action) => {
@@ -34,5 +34,7 @@ export const charactersSlice = createSlice({
         }
     },
 });
+
+export const selectCharactersResults = (state) => state.characters.results;
 
 export default charactersSlice.reducer;
