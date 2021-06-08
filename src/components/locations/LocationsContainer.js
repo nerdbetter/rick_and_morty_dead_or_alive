@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchLocations } from "./LocationsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLocations, selectLocationResults } from "./LocationsSlice";
+import { LocationCard } from "./LocationCard";
+
 import "./Locations.scss";
 
 export const LocationContainer = () => {
   const dispatch = useDispatch();
+  const results = useSelector(selectLocationResults);
 
   useEffect(() => {
     dispatch(fetchLocations());
   }, [dispatch]);
-  return <div className="LocationCard_Wrapper">Hello!</div>;
+
+  const renderCard = () => {
+    return results.map((r) => {
+      return (
+        <LocationCard
+          key={r.id}
+          residents={r.residents}
+          name={r.name}
+          dimension={r.dimension}
+          type={r.type}
+        />
+      );
+    });
+  };
+
+  return <div className="LocationCard_Wrapper">{renderCard()}</div>;
 };

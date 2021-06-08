@@ -1,0 +1,17 @@
+.locationCard {
+    border: 2px solid black;
+    margin: 5px;
+    display: flex;
+    align-items: baseline;
+    text-align: left;
+    padding: 0px 25px;
+    background-color: #e89ac7;
+    flex-wrap: wrap;
+    flex-direction: column;
+    &.hover {
+      &:hover {
+          transition: all 0.2s ease-in-out;
+          transform: scale(.99);
+        }
+    }
+  }

@@ -34,4 +34,7 @@ export const locationsSlice = createSlice({
   },
 });
 
+//selector for results
+export const selectLocationResults = (state) => state.locations.results;
+
 export default locationsSlice.reducer;
