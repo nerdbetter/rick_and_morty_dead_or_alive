@@ -13,6 +13,7 @@ export const LocationContainer = () => {
     dispatch(fetchLocations());
   }, [dispatch]);
 
+  // I extract logic out of main component retuirn when I can
   const renderCard = () => {
     return results.map((r) => {
       return (
