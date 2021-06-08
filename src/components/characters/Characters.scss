@@ -3,9 +3,29 @@
     margin: 5px;
     display: flex;
     align-items: baseline;
-    text-align: left;
     padding: 0px 25px;
-    background-color: #e89ac7;
+    background-color: #f0e14a;
+    justify-content: space-between;
+    align-self: center;
+      &.portrait{
+        height: 35vmin;
+        width: 25%;
+        background-size: cover;
+    }
+    span{
+        font-weight: 600;
+        font-size: 2em;
+        text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+    }
+  }
+  .characterCard .characterCard_headers_wrapper{
+    display: flex;
+    text-align: left;
     flex-wrap: wrap;
     flex-direction: column;
+    text-align: left;
   }
