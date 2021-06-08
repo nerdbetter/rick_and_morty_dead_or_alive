@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch } from "react-redux";
+import { NoteModal } from "../notes/NoteModal";
 
 export const CharacterCard = ({
   name,
@@ -10,15 +11,21 @@ export const CharacterCard = ({
   origin,
   image,
 }) => {
-  console.log(name, gender, species, location, status, origin, image);
   const deadoralive = status === "Dead" ? "red" : "#97ce4c"
-
   const dispatch = useDispatch();
 
-  const onNoteClick = () => {};
+  const [isOpen, toggleIsOpen] = useState(false)
+
+  const onNoteClick = () => {
+     toggleIsOpen(true)
+  };
+  const handleClose = () =>{
+    toggleIsOpen(false)
+  }
 
   return (
     <div className="characterCard">
+      <NoteModal modalIsOpen={isOpen} handleClose={handleClose}/>
       <div className="characterCard_headers_wrapper">
         <h1 className="characterCard_headers">{name}</h1>
         <h2 className="characterCard_headers">Gender: {gender}</h2>
@@ -31,7 +38,7 @@ export const CharacterCard = ({
         style={{backgroundImage: `url(${image})`}}
       >
         <span style={{color:`${deadoralive}`}}>status: {status}</span>
-        <button className="note_button">notes</button>
+        <button className="note_button" onClick={()=>onNoteClick()}>notes</button>
       </div>
     </div>
   );
