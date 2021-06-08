@@ -6,7 +6,6 @@ import "./Characters.scss";
 
 export const CharacterContainer = () => {
     const characters = useSelector(selectCharactersResults)
-    console.log(characters)
 
     const renderCard = () => {
         return characters.map((c) => {

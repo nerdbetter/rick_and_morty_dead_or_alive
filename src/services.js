@@ -5,7 +5,6 @@ const https = require('https')
 const baseUrl = 'https://rickandmortyapi.com/api/'
 
 const get = (endpointUrl) => {
-    console.log('hit service')
   return new Promise((resolve, reject) => {
     const url = `${baseUrl}${endpointUrl}`
     https.get(url, response => {

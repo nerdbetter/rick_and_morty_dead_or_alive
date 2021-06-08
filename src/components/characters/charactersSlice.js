@@ -11,7 +11,6 @@ export const fetchCharacters = createAsyncThunk(
     'characters/fetchCharacters',
     async (options) => {
       return await getCharacter(options).then(async r => {
-         console.log(r)
          return {r}
       });
     }

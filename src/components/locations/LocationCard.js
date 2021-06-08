@@ -9,7 +9,6 @@ export const LocationCard = ({ name, dimension, type, residents }) => {
   const residentIds = residents && residents.map(r => r.split("/")[5])
 
   const handleFetchCharacters = () => {
-    console.log("GET CHARS");
     dispatch(fetchCharacters(residentIds))
     history.push("/characters");
   };
